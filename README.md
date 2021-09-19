@@ -19,3 +19,7 @@ https://wordcounter.space/
 
 login: "1"   
 pass: "1"
+
+--------
+я снял для вас демонстрационное видео (4 минуты)   
+https://www.loom.com/share/779a7063e529452cad855f4e9a183ee7
