@@ -1,0 +1,53 @@
+{% extends "words/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Query detailed page
+{% endblock title%}
+
+{% block body %}    
+    <div class="container" style="width:1000px;">    
+        {{ message }}    <br>   
+        <div class="global_links" style="margin: auto; width: 32%;">
+            <a href="{% url 'global_words' %}">Global words</a> / Personal Global Words
+        </div>
+        <hr>
+        {% comment %} info {% endcomment %}
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+                <tr>                
+                <th scope="col">Different words</th>
+                <th scope="col">number of times they are used</th>                
+                </tr>
+            </thead>
+            <tbody>                         
+                <tr>
+                <td>{{words.count}}</th>
+                <td>{{this_words_counter_summ}}</td>
+                </tr>              
+            </tbody>
+        </table> 
+        
+        {% comment %} words {% endcomment %}
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+                <tr>
+                <th scope="col">№</th>
+                <th scope="col">Word</th>
+                <th scope="col">Counter</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for particular_word,this_words_counter in words_stat %}                
+                <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{particular_word.word}}</td>
+                <td>{{ this_words_counter }}</td>
+                </tr>               
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
+
+

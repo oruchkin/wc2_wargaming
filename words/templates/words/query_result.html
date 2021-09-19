@@ -1,0 +1,33 @@
+{% extends "words/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Query result
+{% endblock title%}
+
+{% block body %}    
+    <div class="container" style="width:400px;">    
+        {{ message }}
+        <p>Query result:</p> 
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">№</th>
+                <th scope="col">Word</th>
+                <th scope="col">Counter</th>                
+                </tr>
+            </thead>
+            <tbody>
+            {% for key, value in query_detailed.items %}                
+                <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{key}}</td>
+                <td>{{ value }}</td>
+                </tr>               
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
+
+

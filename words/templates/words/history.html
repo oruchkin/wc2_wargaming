@@ -1,0 +1,40 @@
+{% extends "words/layout.html" %}
+{% load static %}
+
+{% block title %}
+    History
+{% endblock title%}
+
+{% block body %}    
+    <div class="container" >    
+        {{ message }}
+        <p>Query result:</p> 
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">№</th>
+                <th scope="col">Name</th>
+                <th scope="col">Created date</th>
+                <th scope="col">Different words</th>
+                <th scope="col">Total words</th>
+                <th scope="col">inside</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for query_name_list, query_name_words_stats  in rows %}                         
+                <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td> {{ query_name_list.query_title }} </td>
+                <td>{{ query_name_list.time_created }}</td>
+                <td>{{ query_name_words_stats.different_words }}</td>
+                <td> {{ query_name_words_stats.total_words }}</td>
+                <td><a href="{% url 'query_detailed' query_name_list.pk %} ">inside</a></td>
+                </tr>                           
+             
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
+
+

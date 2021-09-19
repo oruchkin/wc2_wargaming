@@ -1,0 +1,297 @@
+{% extends "words/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Query detailed page
+{% endblock title%}
+
+
+{% comment %} https://stackoverflow.com/questions/28095711/dividing-html-table-into-multiple-tables-in-jquery
+                https://community.spiceworks.com/topic/570243-split-html-table   
+                
+                !!!!
+                https://stackoverflow.com/questions/2376511/how-to-access-outermost-forloop-counter-with-nested-for-loops-in-django-template
+                
+                {% endcomment %}
+                
+
+        {% comment %} info {% endcomment %}
+
+{% block body %} 
+
+    {% comment %} !!!!!!!!!  FOR WARGAMING    !!!!! {% endcomment %}
+    <div class="container" style="width:1104px;">    
+        {{ message }}    <br>   
+    <table class="table table-bordered mt-4">
+        <thead class="table-dark">
+            <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Different words</th>
+            <th scope="col">Words total</th>
+            <th scope="col">Time created</th>
+            </tr>
+        </thead>
+        <tbody>                         
+            <tr>
+            <td> {{ query_name.query_title }}</td>
+            <td>{{ words_are.count }}</td>
+            <td>{{ words_total.0.counter__sum }}</td>
+            <td>{{ query_name.time_created }}</td>
+            </tr>              
+        </tbody>
+    </table> 
+
+    {% comment %} words {% endcomment %}
+    <table class="table table-bordered mt-4">
+        <thead class="table-dark">
+            <tr>
+            <th scope="col">№</th>
+            <th scope="col">Word</th>
+            <th scope="col">tf </th>
+            <th scope="col">idf</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in words_are_wargaming %}                
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.word_id.word}} </td>
+            <td>{{ i.counter }}</td>
+            <td>{{ i.word_id.idf}}</td>
+            </tr>               
+        {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+    <br><br>
+    {% comment %} !!!!!!!!! END FOR WARGAMING    !!!!! {% endcomment %}
+
+
+        {% comment %} info {% endcomment %}
+        <table class="table table-bordered mt-4 ">
+            <thead class="table-dark">
+                <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Different words</th>
+                <th scope="col">Words total</th>
+                <th scope="col">Time created</th>
+                </tr>
+            </thead>
+            <tbody>                         
+                <tr>
+                <td> {{ query_name.query_title }}</td>
+                <td>{{ words_are.count }}</td>
+                <td>{{ words_total.0.counter__sum }}</td>
+                <td>{{ query_name.time_created }}</td>
+                </tr>              
+            </tbody>
+        </table> 
+
+        
+        <div class="box">   
+            {% comment %} 1st table {% endcomment %}
+            <div class="each_table">
+                <table class="table table-bordered border-secondary table-striped table-hover mt-4">
+                    <thead class="table-dark">
+                        <tr>
+                        
+                        <th scope="col">Word</th>
+                        <th style="width:5px;" scope="col">times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in first_table %}      
+                        <tr>                        
+                        <td> <a href="#">{{i.word_id.word}}</a>  </td>
+                        <td style="text-align:center;">{{ i.counter }}</td>
+                        </tr>               
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% comment %} 2nd table {% endcomment %}
+            <div class="each_table">
+                <table class="table table-bordered border-secondary table-striped table-hover mt-4">
+                    <thead class="table-dark">
+                        <tr>
+                        
+                        <th scope="col">Word</th>
+                        <th style="width:5px;" scope="col">times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in second_table %}                
+                        <tr>
+                      
+                        <td>{{i.word_id.word}} </td>
+                        <td style="text-align:center;">{{ i.counter }}</td>
+                        </tr>               
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% comment %} 3rd table {% endcomment %}
+            <div class="each_table">
+                <table class="table table-bordered border-secondary table-striped table-hover mt-4">
+                    <thead class="table-dark">
+                        <tr>
+                        
+                        <th scope="col">Word</th>
+                        <th style="width:5px;" scope="col">times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in third_table %}                
+                        <tr>
+                      
+                        <td>{{i.word_id.word}} </td>
+                        <td style="text-align:center;">{{ i.counter }}</td>
+                        </tr>               
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% comment %} 4th table {% endcomment %}
+            <div class="each_table">
+                <table class="table table-bordered border-secondary table-striped table-hover mt-4">
+                    <thead class="table-dark">
+                        <tr>
+                        
+                        <th scope="col">Word</th>
+                        <th style="width:5px;" scope="col">times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in fourth_table %}                
+                        <tr>
+                      
+                        <td>{{i.word_id.word}} </td>
+                        <td style="text-align:center;">{{ i.counter }}</td>
+                        </tr>               
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% comment %} 5th table {% endcomment %}
+            <div class="each_table">
+                <table class="table table-bordered border-secondary table-striped table-hover mt-4">
+                    <thead class="table-dark">
+                        <tr>
+                        
+                        <th scope="col">Word</th>
+                        <th style="width:5px;" scope="col">times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in fifth_table %}                
+                        <tr>
+                      
+                        <td>{{i.word_id.word}} </td>
+                        <td style="text-align:center;">{{ i.counter }}</td>
+                        </tr>               
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <br>
+
+
+
+        
+        <div>d asd sa</div>
+        {% comment %} horizontal table working but not BEST {% endcomment %}
+        <div class="box">
+            <div class="outer_box">
+                <div class="number_box">№</div>
+                <div class="word_box">word</div>
+                <div class="number_box">X</div>
+            </div>
+            <div class="outer_box">
+                <div class="number_box">№</div>
+                <div class="word_box">word</div>
+                <div class="number_box">X</div>
+            </div>
+            <div class="outer_box">
+                <div class="number_box">№</div>
+                <div class="word_box">word</div>
+                <div class="number_box">X</div>
+            </div>
+            <div class="outer_box">
+                <div class="number_box">№</div>
+                <div class="word_box">word</div>
+                <div class="number_box">X</div>
+            </div>
+            <div class="outer_box">
+                <div class="number_box">№</div>
+                <div class="word_box">word</div>
+                <div class="number_box">X</div>
+            </div>
+            <div class="outer_box">
+                <div class="number_box">№</div>
+                <div class="word_box">word</div>
+                <div class="number_box">X</div>
+            </div>            
+        </div>       
+
+        <div class="box">
+            {% for i in words_are %}    
+            <div class="outer_box">
+                <div class="number_box">{{forloop.counter}}</div>
+                <div class="word_box">{{i.word_id.word}}</div>
+                <div class="number_box">{{ i.counter }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% comment %} info {% endcomment %}
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+                <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Different words</th>
+                <th scope="col">Words total</th>
+                <th scope="col">Time created</th>
+                </tr>
+            </thead>
+            <tbody>                         
+                <tr>
+                <td> {{ query_name.query_title }}</td>
+                <td>{{ words_are.count }}</td>
+                <td>{{ words_total.0.counter__sum }}</td>
+                <td>{{ query_name.time_created }}</td>
+                </tr>              
+            </tbody>
+        </table> 
+        
+        {% comment %} words {% endcomment %}
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+                <tr>
+                <th scope="col">№</th>
+                <th scope="col">Word</th>
+                <th scope="col">Counter</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in words_are %}                
+                <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.word_id.word}} </td>
+                <td>{{ i.counter }}</td>
+                </tr>               
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
+
+
