@@ -8,5 +8,5 @@ login: admin
 pass: admin
 
 
-весь этот же самый код задеплоин на httlp://oleg.uno (удобно)
+весь этот же самый код задеплоин на httlp://oleg.uno  [oleg.uno](httlp://oleg.uno) (удобно)
 
